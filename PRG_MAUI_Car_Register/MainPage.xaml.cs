@@ -12,28 +12,30 @@
 
         private void OnRegisterClicked(object sender, EventArgs e)
         {
-            try
+            if (entryManufacturer.Text != "" && entryModel.Text != "")
             {
-                Vehicle vehicle = new Vehicle((Vehicle.Type)pickerType.SelectedIndex);
+                try
+                {
+                    Vehicle vehicle = new Vehicle((Vehicle.Type)pickerType.SelectedIndex);
 
-                string regNr = entryRegistrationNumber.Text;
-                vehicle.RegistrationNumber = regNr;
-                vehicle.Manufacturer = entryManufacturer.Text;
-                vehicle.Model = entryModel.Text;
-                vehicle.YearModel = entryYearModel.Text;
+                    vehicle.RegistrationNumber = entryRegistrationNumber.Text;
+                    vehicle.Manufacturer = entryManufacturer.Text;
+                    vehicle.Model = entryModel.Text;
+                    vehicle.YearModel = entryYearModel.Text;
 
-                vehicleList.Add(vehicle);
-                listViewVehicles.ItemsSource = null;
-                listViewVehicles.ItemsSource = vehicleList;
+                    vehicleList.Add(vehicle);
+                    listViewVehicles.ItemsSource = null;
+                    listViewVehicles.ItemsSource = vehicleList;
 
-                entryRegistrationNumber.Text = string.Empty;
-                entryManufacturer.Text = string.Empty;
-                entryModel.Text = string.Empty;
-                entryYearMdoel.Text = string.Empty;
-            }
-            catch (ArgumentException ex)
-            {
-                DisplayAlert("Fel", ex.Message, "OK");
+                    entryRegistrationNumber.Text = string.Empty;
+                    entryManufacturer.Text = string.Empty;
+                    entryModel.Text = string.Empty;
+                    entryYearModel.Text = string.Empty;
+                }
+                catch (ArgumentException ex)
+                {
+                    DisplayAlert("Fel", ex.Message, "OK");
+                }
             }
         }
 
