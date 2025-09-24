@@ -58,7 +58,7 @@ namespace PRG_MAUI_Car_Register
                 {
                     android.OnCreate((activity, bundle) =>
                     {
-                        // Ändra färgen på statusfältet på Android
+                        // Ändrar färgen på statusfältet på Android
                         if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
                         {
                             activity.Window.SetStatusBarColor(Android.Graphics.Color.ParseColor("#000000"));

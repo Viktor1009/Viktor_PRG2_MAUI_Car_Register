@@ -20,6 +20,7 @@
                 vehicle.RegistrationNumber = regNr;
                 vehicle.Manufacturer = entryManufacturer.Text;
                 vehicle.Model = entryModel.Text;
+                vehicle.YearModel = entryYearModel.Text;
 
                 vehicleList.Add(vehicle);
                 listViewVehicles.ItemsSource = null;
@@ -28,6 +29,7 @@
                 entryRegistrationNumber.Text = string.Empty;
                 entryManufacturer.Text = string.Empty;
                 entryModel.Text = string.Empty;
+                entryYearMdoel.Text = string.Empty;
             }
             catch (ArgumentException ex)
             {
