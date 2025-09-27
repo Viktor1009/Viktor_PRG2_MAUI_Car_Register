@@ -191,7 +191,7 @@
 
         // Klassens  eventuella övriga metoder brukar finnas här, här en override av ToString()
 
-        //TODO Modifiera overriden på ToString() så att allt visas som önskat i UIs listBox
+        //TODONE Modifiera overriden på ToString() så att allt visas som önskat i UIs listBox
         public override string ToString()
         {
             return this.registrationNumber + "\t" + this.vehicleType + "\t" + this.manufacturer + "\t" + this.model + "\t" +this.yearModel;
