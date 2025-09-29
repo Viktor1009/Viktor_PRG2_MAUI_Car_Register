@@ -110,7 +110,7 @@
                 #endregion
 
                 string invalidYearModel = "\"!\\\"#$%&'()*+,-./:;<=>?@[\\\\]^_`{|}~ \"";
-                foreach (char c in this.yearModel)
+                foreach (char c in value)
                 {
                     if (invalidYearModel.Contains(c)) 
                     {
@@ -142,7 +142,7 @@
                 {
                     if (!char.IsLetter(value[i]))
                     {
-                        throw new ArgumentException("En tillverkare får inte använda sig av tecken utanför alphabetet");
+                        throw new ArgumentException("Ett Märke får inte använda sig av tecken utanför alphabetet");
                     }
                     else
                     {
@@ -169,13 +169,13 @@
                 {
                     if (value[0] != '1' && value[0] != '2')
                     {
-                        throw new ArgumentException("Första tecknet måste vara 1 eller 2.");
+                        throw new ArgumentException("Första tecknet i årsmodelen måste vara 1 eller 2.");
                     }
                     for (int i = 1; i < value.Length; i++)
                     {
                         if (!char.IsDigit(value[i]))
                         {
-                            throw new ArgumentException("De sista tre tecknen måste vara siffror.");
+                            throw new ArgumentException("De sista tre tecknen i årsmodelen måste vara siffror.");
                         }
                             
                     }
