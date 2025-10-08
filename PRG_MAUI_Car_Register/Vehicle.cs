@@ -1,6 +1,6 @@
 ﻿namespace PRG_MAUI_Car_Register
 {
-    class Vehicle
+    abstract class Vehicle
     {
         // Medlemsvariabler
         public enum Type { Bil, MC, Lastbil };
@@ -11,7 +11,7 @@
         private string yearModel = string.Empty;
 
         // Konstruktor (en metod med samma namn som klassen, som returnerar ett objekt)
-        public Vehicle(Type vehicleType) // en konstruktor kan, men måste inte, ta parametrar
+        protected Vehicle(Type vehicleType) // en konstruktor kan, men måste inte, ta parametrar
         {
             this.vehicleType = vehicleType;
         }
@@ -61,7 +61,6 @@
             set { this.vehicleType = value; }
         }
 
-        //TODONE Tillverkare ska valideras, sparas i objektet och visas i UI
         public string Model
         {
             get 
@@ -108,7 +107,8 @@
                 //    throw new ArgumentException("De enda giltliga bilarna i vårt register är en av: \nVolvo \nKia \nFord");
                 //}
                 #endregion
-
+                // en änding jag ska göra i framtiden är ta bort if (invalidYearModel.Contains(c)) och istället använda
+                // value.All(char.IsLetterOrDigit) en funktion som jag inte tidigare visste fanns
                 string invalidYearModel = "\"!\\\"#$%&'()*+,-./:;<=>?@[\\\\]^_`{|}~ \"";
                 foreach (char c in value)
                 {
@@ -124,7 +124,6 @@
             }
         }
 
-        //TODONE Modell ska valideras, sparas i objektet och visas i UI
         public string Manufacturer
         {
             get { return manufacturer; }
@@ -152,7 +151,6 @@
             }
         }
 
-        //TODONE Att spara årsmodell ska möjliggöras, ska valideras, sparas i objektet och visas i UI
         public string YearModel
         {
             get { return yearModel; }
@@ -191,10 +189,31 @@
 
         // Klassens  eventuella övriga metoder brukar finnas här, här en override av ToString()
 
-        //TODONE Modifiera overriden på ToString() så att allt visas som önskat i UIs listBox
         public override string ToString()
         {
             return this.registrationNumber + "\t" + this.vehicleType + "\t" + this.manufacturer + "\t" + this.model + "\t" +this.yearModel;
+        }
+    }
+
+    class Car : Vehicle
+    {
+        public Car() : base(Type.Bil)
+        {
+
+        }
+    }
+    class Motorcycle : Vehicle
+    {
+        public Motorcycle() : base(Type.MC)
+        {
+
+        }
+    }
+    class Truck : Vehicle
+    {
+        public Truck() : base(Type.Lastbil)
+        {
+
         }
     }
 }

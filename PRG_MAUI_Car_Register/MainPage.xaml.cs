@@ -16,7 +16,32 @@
             {
                 try
                 {
-                    Vehicle vehicle = new Vehicle((Vehicle.Type)pickerType.SelectedIndex);
+                    Vehicle vehicle;
+
+                    // Skapa rätt class beroende på vad man valde i pickerType
+                    switch ((Vehicle.Type)pickerType.SelectedIndex)
+                    {
+                        case Vehicle.Type.Bil:
+                            {
+                                vehicle = new Car();
+                                break;
+                            }
+                        case Vehicle.Type.MC:
+                            {
+                                vehicle = new Motorcycle();
+                                break;
+                            }
+                        case Vehicle.Type.Lastbil:
+                            {
+                                vehicle = new Truck();
+                                break;
+                            }
+                        default:
+                            {
+                                throw new ArgumentException("Välj en giltig fordonstyp.");
+                            }
+                            
+                    }
 
                     vehicle.RegistrationNumber = entryRegistrationNumber.Text;
                     vehicle.Manufacturer = entryManufacturer.Text;
