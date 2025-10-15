@@ -1,4 +1,4 @@
-﻿namespace PRG_MAUI_Car_Register
+﻿namespace PRG_MAUI_Car_Register.model
 {
     abstract class Vehicle
     {
@@ -58,7 +58,7 @@
         public Type VehicleType
         {
             get { return vehicleType; }
-            set { this.vehicleType = value; }
+            set { vehicleType = value; }
         }
 
         public string Model
@@ -118,7 +118,7 @@
                     }
                     else 
                     {
-                        this.model = value;
+                        model = value;
                     }
                 }
             }
@@ -145,7 +145,7 @@
                     }
                     else
                     {
-                        this.manufacturer = value;
+                        manufacturer = value;
                     }
                 }
             }
@@ -191,7 +191,7 @@
 
         public override string ToString()
         {
-            return this.registrationNumber + "\t" + this.vehicleType + "\t" + this.manufacturer + "\t" + this.model + "\t" +this.yearModel;
+            return registrationNumber + "\t" + vehicleType + "\t" + manufacturer + "\t" + model + "\t" +yearModel;
         }
     }
 
