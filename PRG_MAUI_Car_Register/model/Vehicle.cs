@@ -107,12 +107,9 @@
                 //    throw new ArgumentException("De enda giltliga bilarna i vårt register är en av: \nVolvo \nKia \nFord");
                 //}
                 #endregion
-                // en änding jag ska göra i framtiden är ta bort if (invalidYearModel.Contains(c)) och istället använda
-                // value.All(char.IsLetterOrDigit) en funktion som jag inte tidigare visste fanns
-                string invalidYearModel = "\"!\\\"#$%&'()*+,-./:;<=>?@[\\\\]^_`{|}~ \"";
                 foreach (char c in value)
                 {
-                    if (invalidYearModel.Contains(c)) 
+                    if (!char.IsLetterOrDigit(c))
                     {
                         throw new ArgumentException("En model måste bestå av endast nummer och bokstäver");
                     }

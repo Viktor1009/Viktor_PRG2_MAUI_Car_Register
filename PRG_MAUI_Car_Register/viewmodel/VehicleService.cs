@@ -22,11 +22,11 @@ namespace PRG_MAUI_Car_Register.viewmodel
         private VehicleService()
         {
             VehicleItems = new ObservableCollection<Vehicle>
-{
-new Car(),
-new Motorcycle(),
-new Truck(),
-};
+                   {
+                    new Car(),
+                    new Motorcycle(),
+                    new Truck(),
+                   };
         }
     }
 
