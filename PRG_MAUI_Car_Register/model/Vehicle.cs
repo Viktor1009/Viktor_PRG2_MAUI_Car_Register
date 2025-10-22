@@ -191,7 +191,7 @@
 
         public override string ToString()
         {
-            return registrationNumber + "\t" + vehicleType + "\t" + manufacturer + "\t" + model + "\t" +yearModel;
+            return registrationNumber + "\t" + vehicleType + "\t" + manufacturer + "\t" + model + "\t" + yearModel;
         }
     }
 

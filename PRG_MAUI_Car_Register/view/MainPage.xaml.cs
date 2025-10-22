@@ -1,4 +1,7 @@
-﻿namespace PRG_MAUI_Car_Register
+﻿using PRG_MAUI_Car_Register.viewmodel;
+using PRG_MAUI_Car_Register.model;
+
+namespace PRG_MAUI_Car_Register
 {
     public partial class MainPage : ContentPage
     {
@@ -16,24 +19,50 @@
             {
                 try
                 {
-                    Vehicle vehicle;
+                    Car car = new Car();
+                    Truck truck = new Truck();
+                    Motorcycle motorcycle = new Motorcycle();
 
                     // Skapa rätt class beroende på vad man valde i pickerType
                     switch ((Vehicle.Type)pickerType.SelectedIndex)
                     {
                         case Vehicle.Type.Bil:
                             {
-                                vehicle = new Car();
+                                car = new Car();
+                                car.RegistrationNumber = entryRegistrationNumber.Text;
+                                car.Manufacturer = entryManufacturer.Text;
+                                car.Model = entryModel.Text;
+                                car.YearModel = entryYearModel.Text;
+
+                                vehicleList.Add(car);
+                                listViewVehicles.ItemsSource = null;
+                                listViewVehicles.ItemsSource = vehicleList;
                                 break;
                             }
                         case Vehicle.Type.MC:
                             {
-                                vehicle = new Motorcycle();
+                                motorcycle = new Motorcycle();
+                                motorcycle.RegistrationNumber = entryRegistrationNumber.Text;
+                                motorcycle.Manufacturer = entryManufacturer.Text;
+                                motorcycle.Model = entryModel.Text;
+                                motorcycle.YearModel = entryYearModel.Text;
+
+                                vehicleList.Add(motorcycle);
+                                listViewVehicles.ItemsSource = null;
+                                listViewVehicles.ItemsSource = vehicleList;
                                 break;
                             }
                         case Vehicle.Type.Lastbil:
                             {
-                                vehicle = new Truck();
+                                truck = new Truck();
+                                truck.RegistrationNumber = entryRegistrationNumber.Text;
+                                truck.Manufacturer = entryManufacturer.Text;
+                                truck.Model = entryModel.Text;
+                                truck.YearModel = entryYearModel.Text;
+
+                                vehicleList.Add(truck);
+                                listViewVehicles.ItemsSource = null;
+                                listViewVehicles.ItemsSource = vehicleList;
                                 break;
                             }
                         default:
@@ -42,15 +71,6 @@
                             }
                             
                     }
-
-                    vehicle.RegistrationNumber = entryRegistrationNumber.Text;
-                    vehicle.Manufacturer = entryManufacturer.Text;
-                    vehicle.Model = entryModel.Text;
-                    vehicle.YearModel = entryYearModel.Text;
-
-                    vehicleList.Add(vehicle);
-                    listViewVehicles.ItemsSource = null;
-                    listViewVehicles.ItemsSource = vehicleList;
 
                     entryRegistrationNumber.Text = string.Empty;
                     entryManufacturer.Text = string.Empty;
