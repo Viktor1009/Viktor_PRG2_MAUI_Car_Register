@@ -3,9 +3,6 @@ using Microsoft.Maui.LifecycleEvents;
 using Android.OS;
 using Android.Views;
 
-using PRG_MAUI_Car_Register;
-using PRG_MAUI_Car_Register.modelview;
-
 #if WINDOWS
 using Microsoft.UI;
 using Microsoft.UI.Windowing;
@@ -13,7 +10,7 @@ using Windows.Graphics;
 using Microsoft.Maui.Platform;
 #endif
 
-namespace PRG_MAUI_Car_Register.modelview
+namespace PRG_MAUI_Car_Register
 {
     public static class MauiProgram
     {

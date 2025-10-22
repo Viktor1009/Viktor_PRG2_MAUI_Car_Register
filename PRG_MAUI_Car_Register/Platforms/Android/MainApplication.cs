@@ -1,6 +1,5 @@
 ﻿using Android.App;
 using Android.Runtime;
-using PRG_MAUI_Car_Register.modelview;
 
 namespace PRG_MAUI_Car_Register
 {
