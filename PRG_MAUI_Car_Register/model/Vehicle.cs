@@ -30,7 +30,6 @@
                         if (!char.IsLetter(value[i]))
                             throw new ArgumentException("Inkorret registreringsnummer: De första tre tecknen måste vara bokstäver.");
                     }
-
                     for (int i = 3; i < 6; i++)
                     {
                         if (i < 5)
@@ -107,15 +106,18 @@
                 //    throw new ArgumentException("De enda giltliga bilarna i vårt register är en av: \nVolvo \nKia \nFord");
                 //}
                 #endregion
-                foreach (char c in value)
+                if(value != "")
                 {
-                    if (!char.IsLetterOrDigit(c))
+                    foreach (char c in value)
                     {
-                        throw new ArgumentException("En model måste bestå av endast nummer och bokstäver");
-                    }
-                    else 
-                    {
-                        model = value;
+                        if (!char.IsLetterOrDigit(c))
+                        {
+                            throw new ArgumentException("En model måste bestå av endast nummer och bokstäver");
+                        }
+                        else
+                        {
+                            model = value;
+                        }
                     }
                 }
             }
@@ -133,16 +135,18 @@
                 //    manufacturer = char.ToUpper(this.manufacturer[0]) + this.manufacturer.Substring(1); }
                 //else { throw new ArgumentException("De enda giltliga bilarna i vårt register är en av: \nVolvo \nKia \nFord"); }
                 #endregion
-
-                for (int i = 0; i < value.Length; i++)
+                if(value != "")
                 {
-                    if (!char.IsLetter(value[i]))
+                    for (int i = 0; i < value.Length; i++)
                     {
-                        throw new ArgumentException("Ett Märke får inte använda sig av tecken utanför alphabetet");
-                    }
-                    else
-                    {
-                        manufacturer = value;
+                        if (!char.IsLetter(value[i]))
+                        {
+                            throw new ArgumentException("Ett Märke får inte använda sig av tecken utanför alphabetet");
+                        }
+                        else
+                        {
+                            manufacturer = value;
+                        }
                     }
                 }
             }
@@ -160,26 +164,21 @@
                 //    else{} }
                 #endregion
 
-                if (value.Length == 4)
+                if (int.TryParse(value, out int modelyear))
                 {
-                    if (value[0] != '1' && value[0] != '2')
+                    if (modelyear >= 1895 && modelyear <= DateTime.Now.Year)
                     {
-                        throw new ArgumentException("Första tecknet i årsmodelen måste vara 1 eller 2.");
+                        value = modelyear.ToString();
                     }
-                    for (int i = 1; i < value.Length; i++)
+                    else
                     {
-                        if (!char.IsDigit(value[i]))
-                        {
-                            throw new ArgumentException("De sista tre tecknen i årsmodelen måste vara siffror.");
-                        }
-                            
+                        throw new ArgumentException("Du får endast registrera bilar mellan årtalen 1865 och nu");
                     }
                 }
                 else
                 {
                     throw new ArgumentException("Skriv årsmodelen med 4 siffror");
                 }
-                yearModel = value;
             }
             //throw new ArgumentException("En årsmodel måste bestå endast siffror mellan 0 till 9");
         }
@@ -189,28 +188,6 @@
         public override string ToString()
         {
             return registrationNumber + "\t" + vehicleType + "\t" + manufacturer + "\t" + model + "\t" + yearModel;
-        }
-    }
-
-    class Car : Vehicle
-    {
-        public Car() : base(Type.Bil)
-        {
-
-        }
-    }
-    class Motorcycle : Vehicle
-    {
-        public Motorcycle() : base(Type.MC)
-        {
-
-        }
-    }
-    class Truck : Vehicle
-    {
-        public Truck() : base(Type.Lastbil)
-        {
-
         }
     }
 }
