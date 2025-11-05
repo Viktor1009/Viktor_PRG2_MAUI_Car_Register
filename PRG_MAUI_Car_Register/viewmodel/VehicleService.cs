@@ -1,11 +1,12 @@
-﻿using System;
+﻿using PRG_MAUI_Car_Register.model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Android.Graphics;
-using PRG_MAUI_Car_Register.model;
+using static Microsoft.Maui.ApplicationModel.Permissions;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace PRG_MAUI_Car_Register.viewmodel
 {

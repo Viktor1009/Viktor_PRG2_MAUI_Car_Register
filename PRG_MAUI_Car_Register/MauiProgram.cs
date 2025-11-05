@@ -1,13 +1,11 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Maui.LifecycleEvents;
-using Android.OS;
-using Android.Views;
 
 #if WINDOWS
 using Microsoft.UI;
 using Microsoft.UI.Windowing;
-using Windows.Graphics;
-using Microsoft.Maui.Platform;
+using WinRT.Interop; // För Win32Interop
+using Windows.Graphics; // För SizeInt32
 #endif
 
 namespace PRG_MAUI_Car_Register
@@ -50,7 +48,6 @@ namespace PRG_MAUI_Car_Register
                 });
             });
 #endif
-
 #if ANDROID
             builder.ConfigureLifecycleEvents(events =>
             {
@@ -58,8 +55,8 @@ namespace PRG_MAUI_Car_Register
                 {
                     android.OnCreate((activity, bundle) =>
                     {
-                        // Ändrar färgen på statusfältet på Android
-                        if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
+                        // Ändra färgen på statusfältet på Android
+                        if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Lollipop)
                         {
                             activity.Window.SetStatusBarColor(Android.Graphics.Color.ParseColor("#000000"));
                         }
@@ -72,3 +69,4 @@ namespace PRG_MAUI_Car_Register
         }
     }
 }
+
