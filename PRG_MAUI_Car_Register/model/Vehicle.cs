@@ -9,6 +9,7 @@
         private string manufacturer = string.Empty;
         private string model = string.Empty;
         private string yearModel = string.Empty;
+        public abstract string GetDescription();
 
         // Konstruktor (en metod med samma namn som klassen, som returnerar ett objekt)
         protected Vehicle(Type vehicleType) // en konstruktor kan, men måste inte, ta parametrar
@@ -185,9 +186,5 @@
 
         // Klassens  eventuella övriga metoder brukar finnas här, här en override av ToString()
 
-        public override string ToString()
-        {
-            return registrationNumber + "\t" + vehicleType + "\t" + manufacturer + "\t" + model + "\t" + yearModel;
-        }
     }
 }
