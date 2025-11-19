@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace PRG_MAUI_Car_Register.viewmodel
 {
-    internal class MainPageModelView
+    class MainPageModelView
     {
+
     }
 }

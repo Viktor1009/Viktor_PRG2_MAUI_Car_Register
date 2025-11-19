@@ -10,7 +10,7 @@
             <Image Source="car.jpg" Aspect="AspectFit" HeightRequest="150" Margin="0,0,0,20"/>
             
             <HorizontalStackLayout Spacing="20" HorizontalOptions="StartAndExpand">
-                <Entry x:Name="entryRegistrationNumber" Placeholder="Registreringsnummer" />
+                <Entry Placeholder="Registreringsnummer" Text="{Binding RegistrationNumber}" />
                 <Label Text="Välj typ:" VerticalOptions="Center"/>
                 <Picker x:Name="pickerType" TextColor="DarkRed">
                 <Picker.ItemsSource>
@@ -22,9 +22,9 @@
                 </Picker.ItemsSource>
             </Picker>
             </HorizontalStackLayout>
-            <Entry x:Name="entryManufacturer" Placeholder="Tillverkare" />
-            <Entry x:Name="entryModel" Placeholder="Modell" />
-            <Entry x:Name="entryYearModel" Placeholder="YearModell" />
+            <Entry Placeholder="Tillverkare" Text="{Binding Manufacturer}" />
+            <Entry Placeholder="Modell" Text="{Binding Model}" />
+            <Entry Placeholder="År" Text="{Binding ModelYear}" />
             <Button x:Name="buttonRegister" Text="Registrera" Clicked="OnRegisterClicked" Margin="0,0,0,20" BackgroundColor="DarkRed"/>
 
             <Label Text="Kategori:" FontAttributes="Bold" />
@@ -35,7 +35,15 @@
                 <RadioButton x:Name="radioTruck" Content="Lastbil" CheckedChanged="OnRadioCheckedChanged" />
             </HorizontalStackLayout>
 
-            <ListView x:Name="listViewVehicles" Margin="0,0,0,20"/>
+            <!--<ListView x:Name="listViewVehicles" Margin="0,0,0,20"/>-->
+            <CollectionView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding Vehilcle}"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
 
             <HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="20">
                 <Entry x:Name="entrySearchRegistrationNumber" HorizontalOptions="FillAndExpand" Placeholder="Sök på registreringsnummer"></Entry>
