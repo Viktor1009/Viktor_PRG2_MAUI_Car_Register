@@ -5,14 +5,12 @@ namespace PRG_MAUI_Car_Register
 {
     public partial class MainPage : ContentPage
     {
-        List<Vehicle> vehicleList = new List<Vehicle>();
-
         public MainPage()
         {
             InitializeComponent();
-            pickerType.SelectedIndex = 0;
+            BindingContext = new MainPageModelView();
         }
-
+/*
         private void OnRegisterClicked(object sender, EventArgs e)
         {
             if (entryManufacturer.Text != "" && entryModel.Text != "")
@@ -130,7 +128,6 @@ namespace PRG_MAUI_Car_Register
             entryManufacturer.Text = string.Empty;
             entryModel.Text = string.Empty;
             entryYearModel.Text = string.Empty;
-        }
-
+        }*/
     }
 }

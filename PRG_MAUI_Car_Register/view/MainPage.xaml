@@ -10,9 +10,16 @@
             <Image Source="car.jpg" Aspect="AspectFit" HeightRequest="150" Margin="0,0,0,20"/>
             
             <HorizontalStackLayout Spacing="20" HorizontalOptions="StartAndExpand">
+                <Label Text="New version, now with Binding"
+                       TextColor="DarkRed"
+                    />
                 <Entry Placeholder="Registreringsnummer" Text="{Binding RegistrationNumber}" />
                 <Label Text="Välj typ:" VerticalOptions="Center"/>
-                <Picker x:Name="pickerType" TextColor="DarkRed">
+                <Picker Title="Välj typ"
+                        ItemsSource="{Binding VehicleTypes}"
+                        SelectedItem="{Binding SelectedType}"
+                        TextColor="DarkRed" />  
+                <!-- <Picker x:Name="pickerType" TextColor="DarkRed">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Bil</x:String>
@@ -20,36 +27,47 @@
                         <x:String>Lastbil</x:String>
                     </x:Array>
                 </Picker.ItemsSource>
-            </Picker>
+                </Picker>-->
             </HorizontalStackLayout>
             <Entry Placeholder="Tillverkare" Text="{Binding Manufacturer}" />
             <Entry Placeholder="Modell" Text="{Binding Model}" />
-            <Entry Placeholder="År" Text="{Binding ModelYear}" />
-            <Button x:Name="buttonRegister" Text="Registrera" Clicked="OnRegisterClicked" Margin="0,0,0,20" BackgroundColor="DarkRed"/>
+            <Entry Placeholder="År" Text="{Binding YearModel}" />
+            <Button x:Name="buttonRegister" Text="Registrera" Command="{Binding RegisterCommand}" Margin="0,0,0,20" BackgroundColor="DarkRed"/>
 
             <Label Text="Kategori:" FontAttributes="Bold" />
             <HorizontalStackLayout HorizontalOptions="Center" Margin="0,0,0,20" Spacing="10" >
-                <RadioButton x:Name="radioAll" Content="Alla" IsChecked="True" CheckedChanged="OnRadioCheckedChanged" />
-                <RadioButton x:Name="radioCar" Content="Bilar" CheckedChanged="OnRadioCheckedChanged" />
-                <RadioButton x:Name="radioMC" Content="MC" CheckedChanged="OnRadioCheckedChanged" />
-                <RadioButton x:Name="radioTruck" Content="Lastbil" CheckedChanged="OnRadioCheckedChanged" />
+                <RadioButton Content="Alla"
+                             CheckedChanged="True"
+                             Command="{Binding FilterVehiclesCommand}"
+                             CommandParameter="{x:Static local:Vehicle.Type.All}" />
+                <RadioButton Content="Bilar"
+                             CheckedChanged="True"
+                             Command="{Binding FilterVehiclesCommand}"
+                             CommandParameter="{x:Static local:Vehicle.Type.Bil}" />    
+                <RadioButton Content="MC"
+                             CheckedChanged="True"
+                             Command="{Binding FilterVehiclesCommand}"
+                             CommandParameter="{x:Static local:Vehicle.Type.MC}" /> 
+                <RadioButton Content="Lastbil"
+                             CheckedChanged="True"
+                             Command="{Binding FilterVehiclesCommand}"
+                             CommandParameter="{x:Static local:Vehicle.Type.Lastbil}" />    
             </HorizontalStackLayout>
 
-            <!--<ListView x:Name="listViewVehicles" Margin="0,0,0,20"/>-->
-            <CollectionView>
+            <CollectionView ItemsSource="{Binding FilteredVehicles}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Label Text="{Binding Vehilcle}"/>
+                        <Label Text="{Binding Name}" />
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-            
+
 
             <HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="20">
-                <Entry x:Name="entrySearchRegistrationNumber" HorizontalOptions="FillAndExpand" Placeholder="Sök på registreringsnummer"></Entry>
-                <Button x:Name="buttonSearch" Text="Sök" HorizontalOptions="End" BackgroundColor="DarkRed" TextColor="White" Clicked="OnSearchClicked"/>
+                <Entry Text="{Binding Search}" HorizontalOptions="FillAndExpand" Placeholder="Sök på registreringsnummer"></Entry>
+                <Button Command="{Binding SearchCommand}" Text="Sök" HorizontalOptions="End" BackgroundColor="DarkRed" TextColor="White" />
             </HorizontalStackLayout>
-            <Label x:Name="labelSearchResult" Text="Sökresultat visas här..." TextColor="DarkRed" Margin="0,20,0,0"/>
+            <Label Text="{Binding SearchResult}" TextColor="DarkRed" Margin="0,20,0,0"/>
         </VerticalStackLayout>
     </ScrollView>
 

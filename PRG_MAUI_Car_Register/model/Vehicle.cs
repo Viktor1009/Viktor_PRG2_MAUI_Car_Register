@@ -67,46 +67,6 @@
             { return model; }
             set 
             {
-                #region Felaktig Lösning
-                //this.model = value.ToLower();
-                //if (this.manufacturer == "Volvo")
-                //{
-                //    if (this.model == "xc60" || this.model == "ex30" || this.model == "ex40")
-                //    {
-                //        model = this.model.ToUpper();
-                //    }
-                //    else
-                //    {
-                //        throw new ArgumentException("De enda giltliga modelerna för Volvo i vårt register är en av: \nXC60 \nEX30 \nEX40");
-                //    }
-                //}
-                //else if (this.manufacturer == "Kia")
-                //{
-                //    if (this.model == "pv5 cargo" || this.model == "pv5 crew" || this.model == "pv5 passenger")
-                //    {
-                //        model = this.model.ToUpper();
-                //    }
-                //    else
-                //    {
-                //        throw new ArgumentException("De enda giltliga bilarna i vårt för Kia i vårt register är en av: \nPV5 CARGO \nPV5 CREW \nPV5 PASSENGER");
-                //    }
-                //}
-                //else if (this.manufacturer == "Ford")
-                //{
-                //    if (this.model == "transit courier" || this.model == "transit connect" || this.model == "transit custom")
-                //    {
-                //        model = this.model.ToUpper();
-                //    }
-                //    else
-                //    {
-                //        throw new ArgumentException("De enda giltliga bilarna i vårt för Ford i vårt register är en av: \nTRANSIT COURIER \nTRANSIT CONNECT \nTRANSIT CUSTOM");
-                //    }
-                //}
-                //else
-                //{
-                //    throw new ArgumentException("De enda giltliga bilarna i vårt register är en av: \nVolvo \nKia \nFord");
-                //}
-                #endregion
                 if(value != "")
                 {
                     foreach (char c in value)
@@ -129,13 +89,6 @@
             get { return manufacturer; }
             set 
             {
-                #region Scrapped Code
-
-                //this.manufacturer = value.ToLower();
-                //if (this.manufacturer == "volvo" || this.manufacturer == "kia" || this.manufacturer == "ford")
-                //    manufacturer = char.ToUpper(this.manufacturer[0]) + this.manufacturer.Substring(1); }
-                //else { throw new ArgumentException("De enda giltliga bilarna i vårt register är en av: \nVolvo \nKia \nFord"); }
-                #endregion
                 if(value != "")
                 {
                     for (int i = 0; i < value.Length; i++)
@@ -158,12 +111,6 @@
             get { return yearModel; }
             set
             {
-                #region Scrapped Code
-                //string invalidYearModel = "\"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!\\\"#$%&'()*+,-./:;<=>?@[\\\\]^_`{|}~ \"";
-                //foreach(char c in this.yearModel) {
-                //    if (!invalidYearModel.Contains(c)) {}
-                //    else{} }
-                #endregion
 
                 if (int.TryParse(value, out int modelyear))
                 {
@@ -183,8 +130,5 @@
             }
             //throw new ArgumentException("En årsmodel måste bestå endast siffror mellan 0 till 9");
         }
-
-        // Klassens  eventuella övriga metoder brukar finnas här, här en override av ToString()
-
     }
 }
