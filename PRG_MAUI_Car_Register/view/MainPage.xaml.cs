@@ -22,7 +22,7 @@ namespace PRG_MAUI_Car_Register
                     // Skapa rätt class beroende på vad man valde i pickerType
                     switch ((Vehicle.Type)pickerType.SelectedIndex)
                     {
-                        case Vehicle.Type.Bil:
+                        case Vehicle.Type.Car:
                         
                             vehicle = new Car();
                             vehicle.RegistrationNumber = entryRegistrationNumber.Text;
@@ -41,7 +41,7 @@ namespace PRG_MAUI_Car_Register
 
                                 break;
                             }
-                        case Vehicle.Type.Lastbil:
+                        case Vehicle.Type.Truck:
                             {
                                 vehicle = new Truck();
                                 vehicle.RegistrationNumber = entryRegistrationNumber.Text;
@@ -78,7 +78,7 @@ namespace PRG_MAUI_Car_Register
 
             if (radioCar.IsChecked)
             {
-                filteredList = vehicleList.Where(v => v.VehicleType == Vehicle.Type.Bil).ToList();
+                filteredList = vehicleList.Where(v => v.VehicleType == Vehicle.Type.Car).ToList();
             }
             else if (radioMC.IsChecked)
             {
@@ -86,7 +86,7 @@ namespace PRG_MAUI_Car_Register
             }
             else if (radioTruck.IsChecked)
             {
-                filteredList = vehicleList.Where(v => v.VehicleType == Vehicle.Type.Lastbil).ToList();
+                filteredList = vehicleList.Where(v => v.VehicleType == Vehicle.Type.Truck).ToList();
             }
             else
             {

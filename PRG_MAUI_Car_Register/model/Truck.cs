@@ -12,7 +12,7 @@ namespace PRG_MAUI_Car_Register.model
         {
             return "This is a Truck, it's usually big and heavy. Sometimes made for offroading.";
         }
-        public Truck() : base(Type.Lastbil)
+        public Truck() : base(Type.Truck)
         {
 
         }

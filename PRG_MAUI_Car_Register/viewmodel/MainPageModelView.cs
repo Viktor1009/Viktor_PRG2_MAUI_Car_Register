@@ -88,7 +88,7 @@ namespace PRG_MAUI_Car_Register.viewmodel
 
             switch (SelectedType)
             {
-                case Vehicle.Type.Bil:
+                case Vehicle.Type.Car:
                     vehicle = new Car();
                     break;
 
@@ -96,7 +96,7 @@ namespace PRG_MAUI_Car_Register.viewmodel
                     vehicle = new Motorcycle();
                     break;
 
-                case Vehicle.Type.Lastbil:
+                case Vehicle.Type.Truck:
                     vehicle = new Truck();
                     break;
 

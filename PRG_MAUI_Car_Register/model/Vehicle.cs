@@ -3,7 +3,7 @@
     abstract class Vehicle
     {
         // Medlemsvariabler
-        public enum Type { Bil, MC, Lastbil };
+        public enum Type { Car, MC, Truck };
         private Type vehicleType;
         private string registrationNumber = string.Empty;
         private string manufacturer = string.Empty;

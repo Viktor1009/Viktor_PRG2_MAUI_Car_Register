@@ -22,9 +22,9 @@
                 <!-- <Picker x:Name="pickerType" TextColor="DarkRed">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
-                        <x:String>Bil</x:String>
+                        <x:String>Car</x:String>
                         <x:String>MC</x:String>
-                        <x:String>Lastbil</x:String>
+                        <x:String>Truck</x:String>
                     </x:Array>
                 </Picker.ItemsSource>
                 </Picker>-->

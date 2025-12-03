@@ -47,7 +47,7 @@ class CarViewModel : INotifyPropertyChanged
     {
         Cars.Clear();
         foreach (var v in VehicleService.Instance.VehicleItems
-                     .Where(v => v.VehicleType == Vehicle.Type.Bil))
+                     .Where(v => v.VehicleType == Vehicle.Type.Car))
             Cars.Add(v);
     }
 
