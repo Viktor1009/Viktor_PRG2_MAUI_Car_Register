@@ -9,19 +9,15 @@
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        ContentTemplate="{DataTemplate local:MainPage}"/>
     <ShellContent
         Title="CarPage"
-        ContentTemplate="{DataTemplate local:CarPage}"
-        Route="CarPage" />
+        ContentTemplate="{DataTemplate local:CarPage}"/>
     <ShellContent
         Title="TruckPage"
-        ContentTemplate="{DataTemplate local:TruckPage}"
-        Route="TruckPage" />
+        ContentTemplate="{DataTemplate local:TruckPage}"/>
     <ShellContent
         Title="MotorcyclePage"
-        ContentTemplate="{DataTemplate local:MotorcyclePage}"
-        Route="MotorcyclePage" />
+        ContentTemplate="{DataTemplate local:MotorcyclePage}"/>
 
 </Shell>

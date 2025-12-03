@@ -5,5 +5,7 @@ public partial class MotorcyclePage : ContentPage
 	public MotorcyclePage()
 	{
 		InitializeComponent();
-	}
+		BindingContext = new MotorcycleViewModel();
+
+    }
 }
