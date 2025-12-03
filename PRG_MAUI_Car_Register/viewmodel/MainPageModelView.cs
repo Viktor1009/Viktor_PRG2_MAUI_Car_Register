@@ -74,14 +74,6 @@ namespace PRG_MAUI_Car_Register.viewmodel
             set { _searchResult = value; OnPropertyChanged(); }
         }
 
-// -------------------------------------------------------- Filter
-        private string _filterVehiclesCommand;
-        public string FilterVehiclesCommand
-        {
-            get => _filterVehiclesCommand;
-            set { _filterVehiclesCommand = value; OnPropertyChanged(); }
-        }
-
         public ICommand RegisterCommand { get; }
         public ICommand SearchCommand { get; }
 

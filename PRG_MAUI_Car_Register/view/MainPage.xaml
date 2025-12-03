@@ -36,13 +36,10 @@
 
             <Label Text="Kategori:" FontAttributes="Bold" />
 
-            <CollectionView ItemsSource="{Binding FilteredVehicles}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Label Text="{Binding Name}" />
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+            <ListView
+                Margin="0,0,0,20"
+                ItemsSource="{Binding }"
+                />
 
 
             <HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="20">
