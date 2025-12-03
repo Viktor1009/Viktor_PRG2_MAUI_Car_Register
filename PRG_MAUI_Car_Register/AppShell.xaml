@@ -11,5 +11,17 @@
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+    <ShellContent
+        Title="CarPage"
+        ContentTemplate="{DataTemplate local:CarPage}"
+        Route="CarPage" />
+    <ShellContent
+        Title="TruckPage"
+        ContentTemplate="{DataTemplate local:TruckPage}"
+        Route="TruckPage" />
+    <ShellContent
+        Title="MotorcyclePage"
+        ContentTemplate="{DataTemplate local:MotorcyclePage}"
+        Route="MotorcyclePage" />
 
 </Shell>
