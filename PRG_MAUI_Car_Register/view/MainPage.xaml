@@ -35,24 +35,6 @@
             <Button x:Name="buttonRegister" Text="Registrera" Command="{Binding RegisterCommand}" Margin="0,0,0,20" BackgroundColor="DarkRed"/>
 
             <Label Text="Kategori:" FontAttributes="Bold" />
-            <HorizontalStackLayout HorizontalOptions="Center" Margin="0,0,0,20" Spacing="10" >
-                <RadioButton Content="Alla"
-                             CheckedChanged="True"
-                             Command="{Binding FilterVehiclesCommand}"
-                             CommandParameter="{x:Static local:Vehicle.Type.All}" />
-                <RadioButton Content="Bilar"
-                             CheckedChanged="True"
-                             Command="{Binding FilterVehiclesCommand}"
-                             CommandParameter="{x:Static local:Vehicle.Type.Bil}" />    
-                <RadioButton Content="MC"
-                             CheckedChanged="True"
-                             Command="{Binding FilterVehiclesCommand}"
-                             CommandParameter="{x:Static local:Vehicle.Type.MC}" /> 
-                <RadioButton Content="Lastbil"
-                             CheckedChanged="True"
-                             Command="{Binding FilterVehiclesCommand}"
-                             CommandParameter="{x:Static local:Vehicle.Type.Lastbil}" />    
-            </HorizontalStackLayout>
 
             <CollectionView ItemsSource="{Binding FilteredVehicles}">
                 <CollectionView.ItemTemplate>
