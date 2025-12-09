@@ -13,9 +13,9 @@
                 <Label Text="New version, now with Binding"
                        TextColor="DarkRed"
                     />
-                <Entry Placeholder="Registreringsnummer" Text="{Binding RegistrationNumber}" />
-                <Label Text="Välj typ:" VerticalOptions="Center"/>
-                <Picker Title="Välj typ"
+                <Entry Placeholder="RegistrationNumber" Text="{Binding RegistrationNumber}" />
+                <Label Text="Vehicle Type:" VerticalOptions="Center"/>
+                <Picker Title="Choose Type"
                         ItemsSource="{Binding VehicleTypes}"
                         SelectedItem="{Binding SelectedType}"
                         TextColor="DarkRed" />  
@@ -29,12 +29,12 @@
                 </Picker.ItemsSource>
                 </Picker>-->
             </HorizontalStackLayout>
-            <Entry Placeholder="Tillverkare" Text="{Binding Manufacturer}" />
-            <Entry Placeholder="Modell" Text="{Binding Model}" />
-            <Entry Placeholder="År" Text="{Binding YearModel}" />
-            <Button x:Name="buttonRegister" Text="Registrera" Command="{Binding RegisterCommand}" Margin="0,0,0,20" BackgroundColor="DarkRed"/>
+            <Entry Placeholder="Manufacturer" Text="{Binding Manufacturer}" />
+            <Entry Placeholder="Model" Text="{Binding Model}" />
+            <Entry Placeholder="YearModel" Text="{Binding YearModel}" />
+            <Button x:Name="buttonRegister" Text="Register" Command="{Binding RegisterCommand}" Margin="0,0,0,20" BackgroundColor="DarkRed"/>
 
-            <Label Text="Kategori:" FontAttributes="Bold" />
+            <Label Text="Categories:" FontAttributes="Bold" />
 
             <ListView
                 Margin="0,0,0,20"
