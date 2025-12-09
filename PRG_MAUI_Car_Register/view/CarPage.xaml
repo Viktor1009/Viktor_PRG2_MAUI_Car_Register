@@ -5,9 +5,17 @@
              Title="CarPage">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="Welcome to the CarPage"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
+		<HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="20">
+			<Entry Placeholder="Search" Text="{Binding SearchQuery}" />
+			<Button Text="Search" Command="{Binding SearchCommand}"/>
+			<Label Text="{Binding SearchResult}"/>
+		</HorizontalStackLayout>
+
+		<ListView ItemsSource="{Bindin Cars}" Margin="0,0,0,20"/>
 		  
     </VerticalStackLayout>
 </ContentPage>
