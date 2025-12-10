@@ -118,17 +118,28 @@ namespace PRG_MAUI_Car_Register.viewmodel
         }
         private void SearchVehicle()
         {
-            var result = Vehicles.FirstOrDefault(v => v.RegistrationNumber == SearchQuery);
+            var q = SearchQuery?.Trim() ?? "";
 
-            if (result == null)
-            {
-                SearchResult = "Inget fordon hittades.";
-            }
-            else
-            {
-                SearchResult = result.Manufacturer + " " + result.Model + " (" + result.YearModel + ")";
-            }
+            var result = Vehicles.FirstOrDefault(v =>
+                !string.IsNullOrEmpty(v.RegistrationNumber) &&
+                v.RegistrationNumber.Contains(q, StringComparison.OrdinalIgnoreCase));
+
+            SearchResult = result == null
+                ? "No Vehicle Found"
+                : $"{result.RegistrationNumber} {result.Manufacturer} {result.Model} ({result.YearModel})";
         }
+    /*
+        var result = Vehicles.FirstOrDefault(v => v.RegistrationNumber == SearchQuery);
+
+        if (result == null)
+        {
+            SearchResult = "Inget fordon hittades.";
+        }
+        else
+        {
+            SearchResult = result.Manufacturer + " " + result.Model + " (" + result.YearModel + ")";
+        }
+    */
 
 
         private void ClearEntryFields()
