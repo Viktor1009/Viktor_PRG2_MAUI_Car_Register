@@ -2,39 +2,28 @@
     
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PRG_MAUI_Car_Register.MainPage"
+             x:Class="PRG_MAUI_Car_Register.view.MainPage"
              >
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="10">
+            <Label Text="New version, now with Binding"
+                   TextColor="DarkRed"/>
             <Image Source="car.jpg" Aspect="AspectFit" HeightRequest="150" Margin="0,0,0,20"/>
-            
+
             <HorizontalStackLayout Spacing="20" HorizontalOptions="StartAndExpand">
-                <Label Text="New version, now with Binding"
-                       TextColor="DarkRed"
-                    />
                 <Entry Placeholder="RegistrationNumber" Text="{Binding RegistrationNumber}" />
                 <Label Text="Vehicle Type:" VerticalOptions="Center"/>
                 <Picker Title="Choose Type"
                         ItemsSource="{Binding VehicleTypes}"
                         SelectedItem="{Binding SelectedType}"
-                        TextColor="DarkRed" />  
-                <!-- <Picker x:Name="pickerType" TextColor="DarkRed">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Car</x:String>
-                        <x:String>MC</x:String>
-                        <x:String>Truck</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-                </Picker>-->
+                        TextColor="DarkRed" 
+                        HorizontalOptions="FillAndExpand" />
             </HorizontalStackLayout>
             <Entry Placeholder="Manufacturer" Text="{Binding Manufacturer}" />
             <Entry Placeholder="Model" Text="{Binding Model}" />
             <Entry Placeholder="YearModel" Text="{Binding YearModel}" />
             <Button x:Name="buttonRegister" Text="Register" Command="{Binding RegisterCommand}" Margin="0,0,0,20" BackgroundColor="DarkRed"/>
-
-            <Label Text="Categories:" FontAttributes="Bold" />
 
             <ListView
                 Margin="0,0,0,20"

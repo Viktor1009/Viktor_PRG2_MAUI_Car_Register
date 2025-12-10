@@ -92,7 +92,7 @@ namespace PRG_MAUI_Car_Register.viewmodel
                     vehicle = new Car();
                     break;
 
-                case Vehicle.Type.MC:
+                case Vehicle.Type.Motorcycle:
                     vehicle = new Motorcycle();
                     break;
 

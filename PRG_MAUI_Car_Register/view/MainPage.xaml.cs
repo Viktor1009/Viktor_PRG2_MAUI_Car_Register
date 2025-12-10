@@ -1,133 +1,13 @@
 ﻿using PRG_MAUI_Car_Register.viewmodel;
 using PRG_MAUI_Car_Register.model;
 
-namespace PRG_MAUI_Car_Register
+namespace PRG_MAUI_Car_Register.view;
+
+public partial class MainPage : ContentPage
 {
-    public partial class MainPage : ContentPage
+    public MainPage()
     {
-        public MainPage()
-        {
-            InitializeComponent();
-            BindingContext = new MainPageModelView();
-        }
-/*
-        private void OnRegisterClicked(object sender, EventArgs e)
-        {
-            if (entryManufacturer.Text != "" && entryModel.Text != "")
-            {
-                try
-                {
-                    Vehicle vehicle;
-
-                    // Skapa rätt class beroende på vad man valde i pickerType
-                    switch ((Vehicle.Type)pickerType.SelectedIndex)
-                    {
-                        case Vehicle.Type.Car:
-                        
-                            vehicle = new Car();
-                            vehicle.RegistrationNumber = entryRegistrationNumber.Text;
-                            vehicle.Manufacturer = entryManufacturer.Text;
-                            vehicle.Model = entryModel.Text;
-                            vehicle.YearModel = entryYearModel.Text;
-                            break;
-                        
-                        case Vehicle.Type.MC:
-                            {
-                                vehicle = new Motorcycle();
-                                vehicle.RegistrationNumber = entryRegistrationNumber.Text;
-                                vehicle.Manufacturer = entryManufacturer.Text;
-                                vehicle.Model = entryModel.Text;
-                                vehicle.YearModel = entryYearModel.Text;
-
-                                break;
-                            }
-                        case Vehicle.Type.Truck:
-                            {
-                                vehicle = new Truck();
-                                vehicle.RegistrationNumber = entryRegistrationNumber.Text;
-                                vehicle.Manufacturer = entryManufacturer.Text;
-                                vehicle.Model = entryModel.Text;
-                                vehicle.YearModel = entryYearModel.Text;
-                                break;
-                            }
-                        default:
-                            {
-                                throw new ArgumentException("Välj en giltig fordonstyp.");
-                            }
-                            
-                    }
-                    vehicleList.Add(vehicle);
-                    listViewVehicles.ItemsSource = null;
-                    listViewVehicles.ItemsSource = vehicleList;
-
-                    ClearEntryFields();
-                }
-                catch (ArgumentException ex)
-                {
-                    DisplayAlert("Fel", ex.Message, "OK");
-                }
-            }
-        }
-
-        private void OnRadioCheckedChanged(object sender, CheckedChangedEventArgs e)
-        {
-            if (e.Value != true) return;
-
-            // Skapa en filtrerad lista baserat på vilken radioknapp som är vald
-            List<Vehicle> filteredList;
-
-            if (radioCar.IsChecked)
-            {
-                filteredList = vehicleList.Where(v => v.VehicleType == Vehicle.Type.Car).ToList();
-            }
-            else if (radioMC.IsChecked)
-            {
-                filteredList = vehicleList.Where(v => v.VehicleType == Vehicle.Type.MC).ToList();
-            }
-            else if (radioTruck.IsChecked)
-            {
-                filteredList = vehicleList.Where(v => v.VehicleType == Vehicle.Type.Truck).ToList();
-            }
-            else
-            {
-                // Om "Alla" är vald, visa hela listan
-                filteredList = vehicleList;
-            }
-
-            listViewVehicles.ItemsSource = filteredList;
-        }
-
-        private void OnSearchClicked(object sender, EventArgs e)
-        {
-            string searchTerm = entrySearchRegistrationNumber.Text?.ToLower();
-
-            if (string.IsNullOrEmpty(searchTerm))
-            {
-                entrySearchRegistrationNumber.Text = "Ange ett registreringsnummer för att söka.";
-                return;
-            }
-
-            var foundVehicle = vehicleList.FirstOrDefault(v => v.RegistrationNumber?.ToLower() == searchTerm);
-
-            if (foundVehicle != null)
-            {
-                labelSearchResult.Text = $"Fordon hittat:\n" +
-                                         $"Registreringsnummer: {foundVehicle.RegistrationNumber}\n" +
-                                         $"Tillverkare: {foundVehicle.Manufacturer}\n" +
-                                         $"Modell: {foundVehicle.Model}\n" +
-                                         $"Typ: {foundVehicle.VehicleType}";
-            }
-            else
-            {
-                labelSearchResult.Text = "Inget fordon hittades med det registreringsnumret.";
-            }
-        }
-        private void ClearEntryFields()
-        {
-            entryRegistrationNumber.Text = string.Empty;
-            entryManufacturer.Text = string.Empty;
-            entryModel.Text = string.Empty;
-            entryYearModel.Text = string.Empty;
-        }*/
+        InitializeComponent();
+        BindingContext = new MainPageModelView();
     }
 }

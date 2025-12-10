@@ -3,11 +3,11 @@
     x:Class="PRG_MAUI_Car_Register.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:PRG_MAUI_Car_Register"
+    xmlns:local="clr-namespace:PRG_MAUI_Car_Register.view"
     Shell.FlyoutBehavior="Disabled"
     Title="PRG_MAUI_Car_Register">
 
-	<Tabbar>
+	<TabBar>
 		<ShellContent
 			Title="Home"
 			ContentTemplate="{DataTemplate local:MainPage}"/>
@@ -20,5 +20,5 @@
 		<ShellContent
 			Title="MotorcyclePage"
 			ContentTemplate="{DataTemplate local:MotorcyclePage}"/>
-	</Tabbar>
+	</TabBar>
 </Shell>
