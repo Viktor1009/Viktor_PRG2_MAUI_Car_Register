@@ -50,7 +50,7 @@ namespace PRG_MAUI_Car_Register.viewmodel
             set { _yearModel = value; OnPropertyChanged(); }
         }
 
-        private Vehicle.Type _selectedType = Vehicle.Type.Bil;;
+        private Vehicle.Type _selectedType = Vehicle.Type.Car;
         public Vehicle.Type SelectedType
         {
             get => _selectedType;
@@ -58,7 +58,7 @@ namespace PRG_MAUI_Car_Register.viewmodel
             {
                 _selectedType = value; OnPropertyChanged();
             }
-        }
+        }   
 
         public ObservableCollection<Vehicle> Vehicles => VehicleService.Instance.VehicleItems;
         
