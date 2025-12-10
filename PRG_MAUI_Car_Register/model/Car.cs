@@ -19,7 +19,7 @@ namespace PRG_MAUI_Car_Register.model
         }
         public override string ToString()
         {
-            return $"{RegistrationNumber} {Manufacturer} {Model} {ModelYear} - ´Car";
+            return $"{RegistrationNumber} {Manufacturer} {Model} {YearModel} - Car";
         }
     }
 }

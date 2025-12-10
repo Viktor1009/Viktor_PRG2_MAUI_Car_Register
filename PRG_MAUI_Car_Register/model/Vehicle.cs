@@ -108,7 +108,7 @@
 
         public string YearModel
         {
-            get { return yearModel; }
+            get { return yearModel.ToString(); }
             set
             {
 
@@ -116,7 +116,7 @@
                 {
                     if (modelyear >= 1895 && modelyear <= DateTime.Now.Year)
                     {
-                        value = modelyear.ToString();
+                        yearModel = modelyear;
                     }
                     else
                     {
