@@ -8,7 +8,7 @@
         private string registrationNumber = string.Empty;
         private string manufacturer = string.Empty;
         private string model = string.Empty;
-        private string yearModel = string.Empty;
+        private int yearModel = 0;
         public abstract string GetDescription();
 
         // Konstruktor (en metod med samma namn som klassen, som returnerar ett objekt)

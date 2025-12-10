@@ -32,7 +32,7 @@
 
 
             <HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="20">
-                <Entry Text="{Binding Search}" HorizontalOptions="FillAndExpand" Placeholder="Search for Registrationnumber"></Entry>
+                <Entry Text="{Binding SearchQuery}" HorizontalOptions="FillAndExpand" Placeholder="Search for Registrationnumber"></Entry>
                 <Button Command="{Binding SearchCommand}" Text="Search" HorizontalOptions="End" BackgroundColor="DarkRed" TextColor="White" />
             </HorizontalStackLayout>
             <Label Text="{Binding SearchResult}" TextColor="DarkRed" Margin="0,20,0,0"/>
