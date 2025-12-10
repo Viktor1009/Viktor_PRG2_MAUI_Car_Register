@@ -13,6 +13,9 @@ namespace PRG_MAUI_Car_Register.viewmodel
 {
     class MainPageModelView : INotifyPropertyChanged
     {
+        public IList<Vehicle.Type> VehicleTypes { get; } =
+        Enum.GetValues(typeof(Vehicle.Type)).Cast<Vehicle.Type>().ToList();
+
         public event PropertyChangedEventHandler PropertyChanged;
         void OnPropertyChanged([CallerMemberName] string name = null)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
@@ -47,7 +50,7 @@ namespace PRG_MAUI_Car_Register.viewmodel
             set { _yearModel = value; OnPropertyChanged(); }
         }
 
-        private Vehicle.Type _selectedType;
+        private Vehicle.Type _selectedType = Vehicle.Type.Bil;;
         public Vehicle.Type SelectedType
         {
             get => _selectedType;
