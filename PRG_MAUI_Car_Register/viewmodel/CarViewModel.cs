@@ -37,10 +37,10 @@ class CarViewModel : INotifyPropertyChanged
 
     public CarViewModel()
     {
-        // Load cars ONCE when the page is created
+        // Hämtar in listan på alla bilar
         LoadCars();
 
-        SearchCommand = new Command(SearchCar);
+        SearchCommand = new Command(SearchCar); // när knappen med SearchCommand trycks körs SearchCar functionen
     }
 
     private void LoadCars()

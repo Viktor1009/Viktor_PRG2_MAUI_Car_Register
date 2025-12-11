@@ -50,7 +50,7 @@ namespace PRG_MAUI_Car_Register.viewmodel
             set { _yearModel = value; OnPropertyChanged(); }
         }
 
-        private Vehicle.Type _selectedType = Vehicle.Type.Car;
+        private Vehicle.Type _selectedType = Vehicle.Type.Car; // sätter deafult type till Car
         public Vehicle.Type SelectedType
         {
             get => _selectedType;
@@ -85,11 +85,11 @@ namespace PRG_MAUI_Car_Register.viewmodel
             RegisterCommand = new Command(RegisterVehicle);
             SearchCommand = new Command(SearchVehicle);
         }
-        private void RegisterVehicle()
+        private void RegisterVehicle() 
         {
             Vehicle vehicle;
 
-            switch (SelectedType)
+            switch (SelectedType) // assignar typen av vehicle
             {
                 case Vehicle.Type.Car:
                     vehicle = new Car();
@@ -120,7 +120,7 @@ namespace PRG_MAUI_Car_Register.viewmodel
         {
             var q = SearchQuery?.Trim() ?? "";
 
-            var result = Vehicles.FirstOrDefault(v =>
+            var result = Vehicles.FirstOrDefault(v => // letar fram det registreringsnummer som matchar närmast 
                 !string.IsNullOrEmpty(v.RegistrationNumber) &&
                 v.RegistrationNumber.Contains(q, StringComparison.OrdinalIgnoreCase));
 
@@ -128,21 +128,7 @@ namespace PRG_MAUI_Car_Register.viewmodel
                 ? "No Vehicle Found"
                 : $"{result.RegistrationNumber} {result.Manufacturer} {result.Model} ({result.YearModel})";
         }
-    /*
-        var result = Vehicles.FirstOrDefault(v => v.RegistrationNumber == SearchQuery);
-
-        if (result == null)
-        {
-            SearchResult = "Inget fordon hittades.";
-        }
-        else
-        {
-            SearchResult = result.Manufacturer + " " + result.Model + " (" + result.YearModel + ")";
-        }
-    */
-
-
-        private void ClearEntryFields()
+        private void ClearEntryFields() // QOL metod
         {
             RegistrationNumber = string.Empty;
             Manufacturer = string.Empty;

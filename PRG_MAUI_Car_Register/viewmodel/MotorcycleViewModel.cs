@@ -37,10 +37,10 @@ class MotorcycleViewModel : INotifyPropertyChanged
 
     public MotorcycleViewModel()
     {
-        // Load cars ONCE when the page is created
+        // Hämtar in listan på alla motorcyklar 
         LoadMotorcycle();
 
-        SearchCommand = new Command(SearchMotorcycle);
+        SearchCommand = new Command(SearchMotorcycle); // när knappen med SearchCommand trycks körs SearchMotorcycle functionen
     }
 
     private void LoadMotorcycle()

@@ -25,6 +25,11 @@
             <Entry Placeholder="YearModel" Text="{Binding YearModel}" />
             <Button x:Name="buttonRegister" Text="Register" Command="{Binding RegisterCommand}" Margin="0,0,0,20" BackgroundColor="DarkRed"/>
 
+			<!--
+			Här borde det igentligen finnas tre RadioButtons 
+			men jag har istället de 3 andra sidorna för om man 
+			vill filtrera listan
+			-->
             <ListView
                 Margin="0,0,0,20"
                 ItemsSource="{Binding Vehicles}"

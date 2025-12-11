@@ -17,7 +17,7 @@ namespace PRG_MAUI_Car_Register.model
         {
             
         }
-        public override string ToString()
+        public override string ToString() // ser till att resultatet när man hämtar vehicle listan ser rätt ut
         {
             return $"{RegistrationNumber} {Manufacturer} {Model} {YearModel} - Car";
         }

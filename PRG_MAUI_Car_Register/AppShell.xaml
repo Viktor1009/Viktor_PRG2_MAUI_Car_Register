@@ -7,7 +7,11 @@
     Shell.FlyoutBehavior="Disabled"
     Title="PRG_MAUI_Car_Register">
 
-	<TabBar>
+	<TabBar> 
+		<!-- 
+		Här skapas taben med de fyra sidorna 
+		En Mainpage och en page för varje version av vehicle
+		-->
 		<ShellContent
 			Title="Home"
 			ContentTemplate="{DataTemplate local:MainPage}"/>

@@ -37,10 +37,10 @@ class TruckViewModel : INotifyPropertyChanged
 
     public TruckViewModel()
     {
-        // Load cars ONCE when the page is created
+        // Hämtar in listan på alla lastbilar
         LoadTruck();
 
-        SearchCommand = new Command(SearchTruck);
+        SearchCommand = new Command(SearchTruck); // när knappen med SearchCommand trycks körs SearchTruck functionen
     }
 
     private void LoadTruck()
