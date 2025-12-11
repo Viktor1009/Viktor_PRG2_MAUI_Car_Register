@@ -13,10 +13,13 @@ namespace PRG_MAUI_Car_Register.model
         {
             return "This is a car, it usually has 4 wheels and 4 doors. It's an essential part of the modern world.";
         }
-        public Car() : base(Type.Bil)
+        public Car() : base(Type.Car)
         {
             
         }
-
+        public override string ToString() // ser till att resultatet när man hämtar vehicle listan ser rätt ut
+        {
+            return $"{RegistrationNumber} {Manufacturer} {Model} {YearModel} - Car";
+        }
     }
 }

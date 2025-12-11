@@ -12,9 +12,13 @@ namespace PRG_MAUI_Car_Register.model
         {
             return "This is a Truck, it's usually big and heavy. Sometimes made for offroading.";
         }
-        public Truck() : base(Type.Lastbil)
+        public Truck() : base(Type.Truck)
         {
 
+        }
+        public override string ToString() // ser till att resultatet när man hämtar vehicle listan ser rätt ut
+        {
+            return $"{RegistrationNumber} {Manufacturer} {Model} {YearModel} - Truck";
         }
     }
 }

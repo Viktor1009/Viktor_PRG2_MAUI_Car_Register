@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PRG_MAUI_Car_Register.view.MotorcyclePage"
+             Title="MotorcyclePage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome to the MotorcyclePage!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+		<HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="20">
+			<Entry Placeholder="Search" Text="{Binding SearchQuery}" />
+			<Button Text="Search" Command="{Binding SearchCommand}"/>
+			<Label Text="{Binding SearchResult}"/>
+		</HorizontalStackLayout>
+
+		<ListView ItemsSource="{Binding Motorcycles}" Margin="0,0,0,20"/>
+    </VerticalStackLayout>
+</ContentPage>
