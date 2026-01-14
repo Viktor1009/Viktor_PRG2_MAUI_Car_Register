@@ -10,12 +10,8 @@ using System.Windows.Input;
 using PRG_MAUI_Car_Register.model;
 using PRG_MAUI_Car_Register.viewmodel;
 
-class CarViewModel : INotifyPropertyChanged
+class CarViewModel : BasicINotifyProperty
 {
-    public event PropertyChangedEventHandler PropertyChanged;
-    void OnPropertyChanged([CallerMemberName] string n = null)
-        => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(n));
-
     public ObservableCollection<Vehicle> Cars { get; }
         = new ObservableCollection<Vehicle>();
 
