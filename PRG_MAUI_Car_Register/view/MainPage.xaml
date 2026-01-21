@@ -10,7 +10,7 @@
             <Label Text="New version, now with Binding"
                    TextColor="DarkRed"/>
             <Image Source="car.jpg" Aspect="AspectFit" HeightRequest="150" Margin="0,0,0,20"/>
-
+            
             <HorizontalStackLayout Spacing="20" HorizontalOptions="StartAndExpand">
                 <Entry Placeholder="RegistrationNumber" Text="{Binding RegistrationNumber}" />
                 <Label Text="Vehicle Type:" VerticalOptions="Center"/>
@@ -34,13 +34,14 @@
                 Margin="0,0,0,20"
                 ItemsSource="{Binding Vehicles}"
                 />
-
-
             <HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="20">
                 <Entry Text="{Binding SearchQuery}" HorizontalOptions="FillAndExpand" Placeholder="Search for Registrationnumber"></Entry>
                 <Button Command="{Binding SearchCommand}" Text="Search" HorizontalOptions="End" BackgroundColor="DarkRed" TextColor="White" />
             </HorizontalStackLayout>
             <Label Text="{Binding SearchResult}" TextColor="DarkRed" Margin="0,20,0,0"/>
+            <Button
+                Command="{Binding SaveCommand}" Text="Save" HorizontalOptions="End" BackgroundColor="DarkRed" TextColor="White" />
+                />
         </VerticalStackLayout>
     </ScrollView>
 

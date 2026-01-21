@@ -116,6 +116,7 @@ namespace PRG_MAUI_Car_Register.viewmodel
 
             ClearEntryFields();
         }
+
         private void SearchVehicle()
         {
             var q = SearchQuery?.Trim() ?? "";
@@ -128,6 +129,7 @@ namespace PRG_MAUI_Car_Register.viewmodel
                 ? "No Vehicle Found"
                 : $"{result.RegistrationNumber} {result.Manufacturer} {result.Model} ({result.YearModel})";
         }
+
         private void ClearEntryFields() // QOL metod
         {
             RegistrationNumber = string.Empty;
