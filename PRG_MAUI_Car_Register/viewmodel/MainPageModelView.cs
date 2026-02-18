@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using PRG_MAUI_Car_Register.model;
+using PRG_MAUI_Car_Register.service;
 
 namespace PRG_MAUI_Car_Register.viewmodel
 {
@@ -20,8 +22,10 @@ namespace PRG_MAUI_Car_Register.viewmodel
         void OnPropertyChanged([CallerMemberName] string name = null)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 
+        private readonly IVehicleRegisterService _storage;
+        
 
-// ------------------------------------------------------ Egenskaper av Vehicle
+        // ------------------------------------------------------ Egenskaper av Vehicle
         private string _registrationNumber;
         public string RegistrationNumber
         {
@@ -36,11 +40,11 @@ namespace PRG_MAUI_Car_Register.viewmodel
             set { _manufacturer = value; OnPropertyChanged(); }
         }
 
-        private string _model;
-        public string Model
+        private string _modelName;
+        public string ModelName
         {
-            get => _model;
-            set { _model = value; OnPropertyChanged(); }
+            get => _modelName;
+            set { _modelName = value; OnPropertyChanged(); }
         }
 
         private string _yearModel;
@@ -80,11 +84,39 @@ namespace PRG_MAUI_Car_Register.viewmodel
         public ICommand RegisterCommand { get; }
         public ICommand SearchCommand { get; }
 
+        public ICommand SaveCommand { get; }
+
         public MainPageModelView()
         {
+            _storage = new JsonVehicleRegisterService();
+
+            Debug.WriteLine("Debug 1: " + _storage); // funkar inte ???
+
             RegisterCommand = new Command(RegisterVehicle);
             SearchCommand = new Command(SearchVehicle);
+
+            
+            SaveCommand = new Command(async () => await SaveAsync());
+            _ = LoadAsync();
+            
         }
+        
+        private async Task LoadAsync()
+        {
+            var vehicles = await _storage.LoadAsync();
+            Vehicles.Clear();
+
+            foreach (var vehicle in vehicles)
+                Vehicles.Add(vehicle);
+        }
+
+        private async Task SaveAsync()
+        { 
+            
+            await _storage.SaveAsync(Vehicles);
+        }
+        
+
         private void RegisterVehicle() 
         {
             Vehicle vehicle;
@@ -109,7 +141,7 @@ namespace PRG_MAUI_Car_Register.viewmodel
             }
             vehicle.RegistrationNumber = RegistrationNumber;
             vehicle.Manufacturer = Manufacturer;
-            vehicle.Model = Model;
+            vehicle.ModelName = ModelName;
             vehicle.YearModel = YearModel;
 
             VehicleService.Instance.VehicleItems.Add(vehicle);
@@ -127,14 +159,14 @@ namespace PRG_MAUI_Car_Register.viewmodel
 
             SearchResult = result == null
                 ? "No Vehicle Found"
-                : $"{result.RegistrationNumber} {result.Manufacturer} {result.Model} ({result.YearModel})";
+                : $"{result.RegistrationNumber} {result.Manufacturer} {result.ModelName} ({result.YearModel})";
         }
 
         private void ClearEntryFields() // QOL metod
         {
             RegistrationNumber = string.Empty;
             Manufacturer = string.Empty;
-            Model = string.Empty;
+            ModelName = string.Empty;
             YearModel = string.Empty;
         }
     }

@@ -57,6 +57,6 @@ class TruckViewModel : BasicINotifyProperty
 
         SearchResult = result == null
             ? "Not found."
-            : $"{result.RegistrationNumber} {result.Manufacturer} {result.Model} ({result.YearModel})";
+            : $"{result.RegistrationNumber} {result.Manufacturer} {result.ModelName} ({result.YearModel})";
     }
 }

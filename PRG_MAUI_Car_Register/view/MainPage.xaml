@@ -21,7 +21,7 @@
                         HorizontalOptions="FillAndExpand" />
             </HorizontalStackLayout>
             <Entry Placeholder="Manufacturer" Text="{Binding Manufacturer}" />
-            <Entry Placeholder="Model" Text="{Binding Model}" />
+            <Entry Placeholder="Model" Text="{Binding ModelName}" />
             <Entry Placeholder="YearModel" Text="{Binding YearModel}" />
             <Button x:Name="buttonRegister" Text="Register" Command="{Binding RegisterCommand}" Margin="0,0,0,20" BackgroundColor="DarkRed"/>
 
@@ -30,18 +30,27 @@
 			men jag har istället de 3 andra sidorna för om man 
 			vill filtrera listan
 			-->
-            <ListView
-                Margin="0,0,0,20"
-                ItemsSource="{Binding Vehicles}"
-                />
+            <CollectionView ItemsSource="{Binding Vehicles}"
+                            SelectedItem="{Binding SelectedVehicle, Mode=TwoWay}"
+                            SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout Spacing="20">
+                            <Label Text="{Binding RegistrationNumber}" />
+                            <Label Text="{Binding Manufacturer}" />
+                            <Label Text="{Binding ModelName}" />
+                            <Label Text="{Binding YearModel}" />
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
             <HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="20">
-                <Entry Text="{Binding SearchQuery}" HorizontalOptions="FillAndExpand" Placeholder="Search for Registrationnumber"></Entry>
+                <Entry Text="{Binding SearchQuery}" HorizontalOptions="FillAndExpand" Placeholder="Search for Registrationnumber"/>
                 <Button Command="{Binding SearchCommand}" Text="Search" HorizontalOptions="End" BackgroundColor="DarkRed" TextColor="White" />
             </HorizontalStackLayout>
             <Label Text="{Binding SearchResult}" TextColor="DarkRed" Margin="0,20,0,0"/>
-            <Button
-                Command="{Binding SaveCommand}" Text="Save" HorizontalOptions="End" BackgroundColor="DarkRed" TextColor="White" />
-                />
+            <Button Command="{Binding SaveCommand}" Text="Save" HorizontalOptions="End" BackgroundColor="DarkRed" TextColor="White" />
         </VerticalStackLayout>
     </ScrollView>
 

@@ -14,22 +14,22 @@ namespace PRG_MAUI_Car_Register.service
                 "vehicles.json");
         }
 
-        public async Task SaveAsync(IEnumerable<Student> students)
+        public async Task SaveAsync(IEnumerable<Vehicle> vehicles)
         {
-            var json = JsonSerializer.Serialize(students,
+            var json = JsonSerializer.Serialize(vehicles,
                 new JsonSerializerOptions { WriteIndented = true });
 
             await File.WriteAllTextAsync(_filePath, json);
         }
 
-        public async Task<IList<Student>> LoadAsync()
+        public async Task<IList<Vehicle>> LoadAsync()
         {
             if (!File.Exists(_filePath))
-                return new List<Student>();
+                return new List<Vehicle>();
 
             var json = await File.ReadAllTextAsync(_filePath);
-            return JsonSerializer.Deserialize<List<Student>>(json)
-                   ?? new List<Student>();
+            return JsonSerializer.Deserialize<List<Vehicle>>(json)
+                   ?? new List<Vehicle>();
         }
     }
 }

@@ -1,16 +1,25 @@
-﻿namespace PRG_MAUI_Car_Register.model
+﻿using System.Text.Json.Serialization;
+
+
+namespace PRG_MAUI_Car_Register.model
 {
-    abstract class Vehicle
+    [JsonPolymorphic(TypeDiscriminatorPropertyName = "$type")]
+    [JsonDerivedType(typeof(Car), "car")]
+    [JsonDerivedType(typeof(Motorcycle), "motorcycle")]
+    [JsonDerivedType(typeof(Truck), "truck")]
+    public abstract class Vehicle
     {
         // Medlemsvariabler
         public enum Type { Car, Motorcycle, Truck };
         private Type vehicleType;
         private string registrationNumber = string.Empty;
         private string manufacturer = string.Empty;
-        private string model = string.Empty;
+        private string modelName = string.Empty;
         private int yearModel = 0;
         public abstract string GetDescription();
 
+
+        protected Vehicle() { }
         // Konstruktor (en metod med samma namn som klassen, som returnerar ett objekt)
         protected Vehicle(Type vehicleType) // en konstruktor kan, men måste inte, ta parametrar
         {
@@ -61,10 +70,10 @@
             set { vehicleType = value; }
         }
 
-        public string Model
+        public string ModelName
         {
             get 
-            { return model; }
+            { return modelName; }
             set 
             {
                 if(value != "")
@@ -77,7 +86,7 @@
                         }
                         else
                         {
-                            model = value;
+                            modelName = value;
                         }
                     }
                 }
@@ -120,7 +129,7 @@
                     }
                     else
                     {
-                        throw new ArgumentException("Du får endast registrera bilar mellan årtalen 1865 och nu");
+                        throw new ArgumentException("Du får endast registrera bilar mellan årtalen 1895 och nu");
                     }
                 }
                 else

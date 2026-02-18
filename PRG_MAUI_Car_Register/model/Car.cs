@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PRG_MAUI_Car_Register.model
 {
-    class Car : Vehicle
+    public class Car : Vehicle
     {
         public override string GetDescription()
         {
@@ -19,7 +19,7 @@ namespace PRG_MAUI_Car_Register.model
         }
         public override string ToString() // ser till att resultatet när man hämtar vehicle listan ser rätt ut
         {
-            return $"{RegistrationNumber} {Manufacturer} {Model} {YearModel} - Car";
+            return $"{RegistrationNumber} {Manufacturer} {ModelName} {YearModel} - Car";
         }
     }
 }
